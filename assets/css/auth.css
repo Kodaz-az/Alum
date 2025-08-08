@@ -1,0 +1,444 @@
+/*
+ * Authentication Pages Styles
+ * Alumpro.Az Management System
+ */
+
+/* Auth page specific styles */
+.auth-page {
+    background: linear-gradient(135deg, 
+        var(--primary-color) 0%, 
+        var(--secondary-color) 50%, 
+        var(--primary-color) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+.auth-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 2rem 0;
+    position: relative;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.03"><circle cx="30" cy="30" r="2"/></g></svg>');
+    pointer-events: none;
+}
+
+.auth-card {
+    padding: 2.5rem;
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+    border-radius: var(--border-radius-xl);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.auth-header {
+    margin-bottom: 2rem;
+}
+
+.auth-header h1 {
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styling */
+.auth-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.auth-form .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form .input-group {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+.auth-form .input-group-text {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    border-right: none;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    transition: all var(--transition-fast);
+}
+
+.auth-form .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-left: none;
+    transition: all var(--transition-fast);
+}
+
+.auth-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.auth-form .form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--warning-color);
+    color: white;
+    box-shadow: 
+        0 0 0 0.2rem rgba(255, 193, 7, 0.25),
+        var(--shadow-md);
+    outline: none;
+}
+
+.auth-form .form-control:focus + .toggle-password,
+.auth-form .input-group:focus-within .input-group-text {
+    border-color: var(--warning-color);
+    background: rgba(255, 193, 7, 0.2);
+}
+
+.auth-form textarea.form-control {
+    resize: vertical;
+    min-height: 80px;
+    max-height: 120px;
+}
+
+/* Toggle Password Button */
+.toggle-password {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+    border-left: none;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.toggle-password:hover {
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+}
+
+/* Checkboxes */
+.auth-form .form-check {
+    margin-bottom: 1rem;
+}
+
+.auth-form .form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 0.25em;
+    transition: all var(--transition-fast);
+}
+
+.auth-form .form-check-input:checked {
+    background-color: var(--warning-color);
+    border-color: var(--warning-color);
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+.auth-form .form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+.auth-form .form-check-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-left: 0.5rem;
+}
+
+.auth-form .form-check-label a {
+    color: var(--warning-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.auth-form .form-check-label a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Validation Styles */
+.auth-form .form-control.is-valid {
+    border-color: var(--success-color);
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.auth-form .form-control.is-invalid {
+    border-color: var(--danger-color);
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.auth-form .invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #ff6b6b;
+    background: rgba(220, 53, 69, 0.1);
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+    backdrop-filter: blur(5px);
+}
+
+.auth-form .valid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: #51cf66;
+    background: rgba(40, 167, 69, 0.1);
+    padding: 0.5rem;
+    border-radius: var(--border-radius-sm);
+    backdrop-filter: blur(5px);
+}
+
+/* Submit Button */
+.auth-form .btn-warning {
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 0.875rem 2rem;
+    border-radius: var(--border-radius-md);
+    box-shadow: 
+        var(--shadow-md),
+        0 4px 8px rgba(255, 193, 7, 0.3);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.auth-form .btn-warning::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.auth-form .btn-warning:hover::before {
+    left: 100%;
+}
+
+.auth-form .btn-warning:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        var(--shadow-lg),
+        0 6px 12px rgba(255, 193, 7, 0.4);
+}
+
+.auth-form .btn-warning:active {
+    transform: translateY(0);
+}
+
+/* Demo Login Section */
+.demo-logins {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+}
+
+.demo-logins h6 {
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.demo-logins .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-md);
+    transition: all var(--transition-fast);
+    backdrop-filter: blur(5px);
+}
+
+.demo-logins .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Small text helpers */
+.auth-form small {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Divider */
+.auth-card hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(255, 255, 255, 0.3), 
+        transparent
+    );
+    margin: 2rem 0;
+}
+
+/* Links and Navigation */
+.auth-card .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.9);
+    transition: all var(--transition-fast);
+}
+
+.auth-card .btn-outline-light:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+}
+
+.auth-card .text-white-50 a {
+    color: var(--warning-color);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.auth-card .text-white-50 a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Animations */
+.auth-card {
+    animation: slideInUp 0.6s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.demo-logins {
+    animation: slideInUp 0.8s ease-out;
+}
+
+/* Loading state */
+.auth-form .btn[disabled] {
+    opacity: 0.8;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.auth-form .loading {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+    margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 1rem 0;
+    }
+    
+    .auth-card {
+        padding: 2rem 1.5rem;
+        margin: 1rem;
+        border-radius: var(--border-radius-lg);
+    }
+    
+    .auth-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .auth-form .btn-warning {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .demo-logins {
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .demo-logins .btn {
+        font-size: 0.8rem;
+        padding: 0.4rem 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .auth-card {
+        padding: 1.5rem 1rem;
+        margin: 0.5rem;
+    }
+    
+    .auth-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .auth-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .auth-form .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .auth-form .input-group-text,
+    .auth-form .form-control,
+    .toggle-password {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .auth-form .form-control.is-valid {
+        background: rgba(40, 167, 69, 0.15);
+    }
+    
+    .auth-form .form-control.is-invalid {
+        background: rgba(220, 53, 69, 0.15);
+    }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .auth-card {
+        background: rgba(0, 0, 0, 0.8);
+        border: 2px solid white;
+    }
+    
+    .auth-form .form-control,
+    .auth-form .input-group-text {
+        border-width: 2px;
+    }
+}
